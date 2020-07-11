@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t medsaid/docker-react -f Dockerfile.dev .
+
+script:
+  - docker medsaid/docker-react npm test -- --coverage
